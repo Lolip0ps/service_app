@@ -1,3 +1,8 @@
-from django.shortcuts import render
+from rest_framework.viewsets import ReadOnlyModelViewSet
+from servises.models import Subscriptions
+from servises.serializers import SubscriptionsSerializer
 
-# Create your views here.
+
+class SubscriptionsView(ReadOnlyModelViewSet):
+    queryset = Subscriptions.objects.all()
+    serializer_class = SubscriptionsSerializer
